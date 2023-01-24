@@ -6,7 +6,9 @@ $(function() {
       inputRepetirClaveActual = $("#repetirClaveActual"),
       fieldset = $("fieldset"),
       nivel;
-  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /*Función a cambiar*/
+    //Alumno: Oscar Stalyn Yanfer LAURA  
     function devuelveNivel(esteInput, evento) {
       var nivelBajo = 8,
         nivelMedio = 12,
@@ -38,7 +40,11 @@ $(function() {
         }
       }
     }
-  
+    /*Cambios sugeridos:
+    Mejorar y optimizar la porción de código que retorna el nivel de seguridad de contraseña digitada por el usuario.
+    Hacer uso de Query Selector y AddEventListener para escuchar el evento de "entrada" en el elemento de entrada, esto posibilitará mayor compatibilidad con diferentes navegadores
+    */
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
     function comprobarClave(e) {
       var divClaveCorrecta = $(".clavecorrecta"),
           espanNivelesColores = $(".spanNivelesColores"),
