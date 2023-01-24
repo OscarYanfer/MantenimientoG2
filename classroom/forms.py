@@ -4,6 +4,8 @@ from ckeditor.widgets import CKEditorWidget
 from classroom.models import Course, Category, Grade
 
 
+## Seria recomendable reestructurar la clase de meta para poder organizar mejor las definiciones de campos y widgets, se define las opciones de día de forma explicita y se especifica los campos requeridos.
+
 class NewCourseForm(forms.ModelForm):
 	picture = forms.ImageField(required=False)
 	title = forms.CharField(widget=forms.TextInput(attrs={'class': 'validate'}), required=True)
