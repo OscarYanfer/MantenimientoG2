@@ -39,6 +39,13 @@ $(function() {
       }
     }
   
+
+
+    /* SUGERENCIA DE MEJORA
+      Se podría eliminar el valor de los inputs así como el evento stopPropagation() ya que no es necesario.
+      Además de estandarizar los nombres utilizados al idioma ingles*/
+
+
     function comprobarClave(e) {
       var divClaveCorrecta = $(".clavecorrecta"),
           espanNivelesColores = $(".spanNivelesColores"),
