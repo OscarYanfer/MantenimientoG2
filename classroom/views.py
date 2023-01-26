@@ -119,7 +119,7 @@ def categories(request):
 		* condicional para ordenar las paginas 
 		* retornar valores
 '''
-
+ 
 # Este proceso se realizaría a la hora de renderizar la vista en html también.
 def category_courses(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
