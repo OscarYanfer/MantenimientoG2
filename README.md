@@ -6,3 +6,4 @@ Integrantes:
 - Carhuamaca Puente, Albert Antonio
 - Benites Narrea, Elvis Saul
 - Huarcaya tacas, Edward Joel  
+- Quispe Alarcon, Jorge Luis
