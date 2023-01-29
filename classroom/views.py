@@ -111,16 +111,6 @@ def categories(request):
 #Texto Prueba
 #Texto Prueba
 
-# ELVIS BENITES NARREA
-'''
-	def paginacion(actual, fin):
-		* el total de cursos por vista
-		* se determina la cantidad de filas por vista
-		* condicional para ordenar las paginas 
-		* retornar valores
-'''
- 
-# Este proceso se realizaría a la hora de renderizar la vista en html también.
 def category_courses(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     courses = Course.objects.filter(category=category)
@@ -253,12 +243,40 @@ def edit_course(request, course_id):
 #Texto Prueba
 #Texto Prueba
 #Texto Prueba
+
+
+# ELVIS BENITES NARREA
+'''
+	def paginacion(actual, fin):
+		* el total de cursos por vista
+		* se determina la cantidad de filas por vista
+		* condicional para ordenar las paginas 
+		* retornar valores
+'''
+ 
+# Este proceso se realizaría a la hora de renderizar la vista en html también.
+
+#def my_courses(request):
+#    user = request.user
+#    courses = Course.objects.filter(user=user)
+#
+#    context = {
+#        'courses': courses
+#   }
+#
+#   return render(request, MIS_CURSOS_URL, context)
 def my_courses(request):
     user = request.user
     courses = Course.objects.filter(user=user)
-
+    
+    paginator = Paginator(courses, 8)
+    pagina = request.GET.get("page") or 1
+    courses = paginator.get_page(pagina)
+    pag_actual= int(pagina)
+    paginas = range(1,courses.paginator.num_pages+1)
+     
     context = {
-        'courses': courses
+        'courses': courses, "paginas":paginas, "pag_actual": pag_actual
     }
 
     return render(request, MIS_CURSOS_URL, context)
