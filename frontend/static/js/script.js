@@ -45,23 +45,22 @@ $(function() {
       Se podría eliminar el valor de los inputs así como el evento stopPropagation() ya que no es necesario.
       Además de estandarizar los nombres utilizados al idioma ingles*/
 
-
-    function comprobarClave(e) {
-      var divClaveCorrecta = $(".clavecorrecta"),
-          espanNivelesColores = $(".spanNivelesColores"),
-          nivelSeguridad = $("#nivelseguridad");
-      e.preventDefault();
-      e.stopPropagation();
-      if (inputClaveActual.val() === inputRepetirClaveActual.val()) {
-        divClaveCorrecta.removeClass("oculto");
-        espanNivelesColores.removeClass().addClass("spanNivelesColores nulo");
-        nivelSeguridad.html("");
-        return true;
-      } else {
-        inputClaveActual.focus();
-        mostrarError();
-        inputs.val("");
-      }
+      function checkPassword(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var correctPass = $(".clavecorrecta"),
+            securityLevel = $("#nivelseguridad"),
+            colorIndicator = $(".spanNivelesColores");
+        if (inputClaveActual.val() === inputRepetirClaveActual.val()) {
+            correctPass.removeClass("oculto");
+            colorIndicator.removeClass().addClass("spanNivelesColores nulo");
+            securityLevel.html("");
+            return true;
+        } else {
+            inputClaveActual.focus();
+            showError();
+            inputs.val("");
+        }
     }
     function mostrarError() {
       var divError = $(".error"),
