@@ -8,7 +8,47 @@ $(function() {
       nivel;
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /*Función a cambiar*/
-    //Alumno: Oscar Stalyn Yanfer LAURA  
+    //Alumno: Oscar Stalyn Yanfer LAURA
+
+    const LEVELS = {
+      low: 8,
+      medium: 12,
+      high: 16
+    };
+    
+    function devuelveNivel(input) {
+      const passwordLength = input.val().length;
+      const spanElement = document.querySelector(".spanNivelesColores");
+    
+      if (passwordLength === 0) {
+        spanElement.classList.remove("spanNivelesColores", "bajo", "medio", "alto", "muyAlto");
+        return;
+      }
+    
+      if (passwordLength < LEVELS.low) {
+        spanElement.classList.remove("medio", "alto", "muyAlto");
+        spanElement.classList.add("spanNivelesColores", "bajo");
+        nivel = "bajo";
+      } else if (passwordLength < LEVELS.medium) {
+        spanElement.classList.remove("bajo", "alto", "muyAlto");
+        spanElement.classList.add("spanNivelesColores", "medio");
+        nivel = "medio";
+      } else if (passwordLength < LEVELS.high) {
+        spanElement.classList.remove("bajo", "medio", "muyAlto");
+        spanElement.classList.add("spanNivelesColores", "alto");
+        nivel = "alto";
+      } else {
+        spanElement.classList.remove("bajo", "medio", "alto");
+        spanElement.classList.add("spanNivelesColores", "muyAlto");
+        nivel = "muy alto";
+      }
+    }
+    
+    input.addEventListener("input", (event) => {
+      checkPasswordStrength(event.target);
+    });
+    
+    /*
     function devuelveNivel(esteInput, evento) {
       var nivelBajo = 8,
         nivelMedio = 12,
@@ -40,6 +80,8 @@ $(function() {
         }
       }
     }
+    */
+
     /*Cambios sugeridos:
     Mejorar y optimizar la porción de código que retorna el nivel de seguridad de contraseña digitada por el usuario.
     Hacer uso de Query Selector y AddEventListener para escuchar el evento de "entrada" en el elemento de entrada, esto posibilitará mayor compatibilidad con diferentes navegadores
