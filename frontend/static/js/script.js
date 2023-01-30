@@ -56,7 +56,7 @@ $(function() {
         inputs.val("");
       }
     }
-    function mostrarError() {
+    /*function mostrarError() {
       var divError = $(".error"),
           espanNivelesColores = $(".spanNivelesColores"),
           nivelSeg = $("#nivelseguridad");
@@ -70,7 +70,23 @@ $(function() {
       if(!divError.hasClass("oculto")) {
         divError.addClass("oculto");
       }
+    }*/
+
+    const divError = $(".error"),
+      espanNivelesColores = $(".spanNivelesColores"),
+      nivelSeg = $("#nivelseguridad");
+
+    function mostrarError() {
+      divError.removeClass("oculto", 600);
+      nivelSeg.html("bajo");
+      espanNivelesColores.removeClass().addClass("spanNivelesColores nulo");
     }
+
+    function limpiarError() {
+      divError.addClass("oculto");
+    }
+
+
     $(document).on('keyup', 'input', function(e) {
       var nivelSeg = $("#nivelseguridad");
       devuelveNivel($(this), e);
